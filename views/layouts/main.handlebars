@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>renthub.in</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <meta name="google-signin-client_id" content="452772637773-61ablseaj861narh01j83f875ifdv7qo.apps.googleusercontent.com">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/google.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#target").hide();
+      $("#toggle").click(function(e) {
+        $("#target").toggle();
+      });
+    });
+  </script>
+  <script>
+    function openDialog() {
+      Avgrund.show("#default-popup");
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1 class="title">Rental-<span>in</span></h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="g-loginData">
+      <img id="g-loginPic" class="image-cirlce">
+      <h4 id="g-accountDisplayName"></h4>
+      <h4 id="g-emailAddress"></h4>
+      <a href="#" onClick="signOut()">SignOut</a>
+    </div>
+  </header>
+  <main>
+    {{{body}}}
+  </main>
+</body>
+
+</html>
