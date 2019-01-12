@@ -45,12 +45,16 @@ module.exports = {
   },
   //Test purpose
   getAccount(req, res) {
-    AccountModel.find({}, {}, {
-      sort: {
-        timestamp: -1
-      }
-    }, (err, posts) => {
-      res.send(posts);
-    })
+    if (req.session.email == 'kasidkhan@gmail.com') {
+      AccountModel.find({}, {}, {
+        sort: {
+          timestamp: -1
+        }
+      }, (err, posts) => {
+        res.send(posts);
+      })
+    } else {
+      res.render('notfound')
+    }
   }
 }
