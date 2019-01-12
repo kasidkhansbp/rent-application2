@@ -44,21 +44,13 @@ $(document).ready(function(){
     $(this).closest(".container").find(".reply-block").hide();
     // other code here to act on the click
  });
+
 	$("#post-form").submit(function() {
 		if(localStorage.getItem('myUserEntity')==null){
     		alert("login to post an Ad");
     		return false;
   	} else {
-  		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'http://localhost:3000/login',true);
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		xhr.onload = function() {
-  		console.log('Signed in as: ' + xhr.responseText);
-		};
-		console.log('printing id token');
-		console.log(id_token);
-		xhr.send('idtoken=' + id_token);
-  		console.log('entered session Storage else part');
+			// else part should happen while login and post
         return true;
   }
 	});

@@ -10,18 +10,16 @@ module.exports = {
       address: req.body.address,
       pincode: req.body.pincode,
       timestamp: Date.now(),
-      google_id: req.session.google_id,
       email: req.session.email,
       replies: []
     })
-    //doc = AccountModel.find({google_id:req.session.google_id});
     //saves the post
     post.save().then(function(doc) {
       console.log('inside post save' + doc._id)
-      console.log('google_id' + req.session.google_id)
+      console.log('email' + req.session.email)
       // IS there a better way write this query to catch error
       AccountModel.findOneAndUpdate({
-        google_id: req.session.google_id
+        email: req.session.email
       }, {
         $push: {
           posts: doc._id
@@ -47,8 +45,7 @@ module.exports = {
         post.address = req.body.address,
         post.pincode = req.body.pincode,
         post.timestamp = Date.now(),
-        google_id = req.session.google_id,
-        email = req.session.email
+        post.email = req.session.email
 
       //save the function
       post.save((error) => {

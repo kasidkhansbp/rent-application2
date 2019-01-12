@@ -3,12 +3,12 @@ var GoogleUserInfo = require('../helpers/GoogleUserInfo');
 module.exports = {
 
   index(req, res) {
-    var payload = GoogleUserInfo.payload(req);
-    console.log('payload inside index')
-    console.log(payload)
-    var userid = payload['sub'];
+    const myUserEntity = GoogleUserInfo.userInfo(req);
+    console.log('inside Account index')
+    console.log(myUserEntity)
+    var email = myUserEntity.email;
     AccountModel.find({
-      google_id: userid
+      email: email
     }, (error, account) => {
       if (error) {
         console.log('error: ' + error)
@@ -18,16 +18,15 @@ module.exports = {
       if (!account.length) {
         console.log('entered account creation')
         account = new AccountModel({
-          email: payload['email'],
-          name: payload['name'],
-          google_id: payload['sub'],
+          email: myUserEntity.email,
+          name: myUserEntity.name,
           timestamp: Date.now(),
           posts: [],
           replies: []
         })
-        //set session with google_id and email
-        req.session.email = payload['email'];
-        req.session.google_id = payload['sub'];
+        //set session with name and email
+        req.session.email = myUserEntity.email;
+        req.session.name = myUserEntity.name;
         account.save((error) => {
           if (error) {
             console.log('error: ' + error)
@@ -36,10 +35,10 @@ module.exports = {
           res.render('index')
         })
       } else {
-        //set session with google_id and email
+        //set session with name and email
         console.log('existing account session setter')
-        req.session.email = payload['email'];
-        req.session.google_id = payload['sub'];
+        req.session.email = myUserEntity.email;
+        req.session.name = myUserEntity.name;
         res.render('index.handlebars')
       }
     })

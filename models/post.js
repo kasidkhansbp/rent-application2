@@ -11,7 +11,6 @@ const PostSchema = new Schema({
     address: {type: String,required:true},
     pincode: {type: String,required:true},
     timestamp: {type:Date,'default':Date.now},
-    google_id: {type: String,required:true},
     email: {type: String,required:true},
     replies: [{
       type: Schema.Types.ObjectId,
