@@ -4,6 +4,11 @@ module.exports = {
   create(req, res) {
     console.log('Entered post create')
     //res.send('The post: create controller');
+    console.log('req session' + req.session.email)
+    if (!req.session.email) {
+      console.log('inside req session validation')
+      res.redirect('/');
+    }
     let post = new PostModel({
       title: req.body.title,
       description: req.body.description,
@@ -26,7 +31,7 @@ module.exports = {
         }
       }, {
         new: true
-      }).then(()=>doc);
+      }).then(() => doc);
       res.render('index.handlebars')
     })
   },
@@ -78,6 +83,7 @@ module.exports = {
     })
   },
   reply(req, res) {
-    res.send('The post: reply controller');
+    //res.send('The post: reply controller');
+    // I need post id
   },
 }
