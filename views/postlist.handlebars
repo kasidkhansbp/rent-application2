@@ -1,6 +1,6 @@
 <article>
   {{#each .}}
-    <section>
+    <section class="target" data-id={{_id}}>
       <div class="container">
         <h1>{{title}}</h1>
         <p>{{description}}</p>
@@ -10,8 +10,8 @@
         <button class="reply-button">Reply</button>
         <!--reply class is hidden by default-->
         <div class="reply-block">
-          <textarea rows="4" cols="50"></textarea><br>
-          <button class="reply-submit" data-id={{_id}}>send</button>
+          <textarea class="reply-msg" rows="4" cols="50"></textarea><br>
+          <button class="reply-submit">send</button>
           <button class="reply-cancel">cancel</button>
         </div>
       </div>

@@ -1,5 +1,6 @@
 PostModel = require('../models').Post;
 AccountModel = require('../models').Account;
+ReplyModel = require('../models').Reply;
 module.exports = {
   create(req, res) {
     console.log('Entered post create')
@@ -85,5 +86,51 @@ module.exports = {
   reply(req, res) {
     //res.send('The post: reply controller');
     // I need post id
+    console.log('Entered reply create')
+    //res.send('The post: create controller');
+    console.log('req session email ' + req.session.email)
+    console.log('req session name' + req.session.name)
+    console.log('post id'+req.body.replyData)
+    const replyData = JSON.parse(req.body.replyData);
+    if (!req.session.email) {
+      console.log('inside req session validation')
+      res.redirect('/');
+    }
+    // Create a Reply
+    let reply = new ReplyModel({
+      message: replyData.msg,
+      name: req.session.name,
+      email: req.session.email,
+      timestamp: Date.now(),
+      post_id: replyData.id
+    })
+    // save the Reply
+    reply.save().then(function(doc) {
+      console.log('inside post save' + doc._id)
+      console.log('email' + req.session.email)
+      // IS there a better way write this query to catch error
+      // update account
+      AccountModel.findOneAndUpdate({
+        email: req.session.email
+      }, {
+        $push: {
+          replies: doc._id
+        }
+      }, {
+        new: true
+      }).then(() => doc);
+      // update post
+      PostModel.findOneAndUpdate({
+        _id: req.body.replyData.id
+      }, {
+        $push: {
+          replies: doc._id
+        }
+      }, {
+        new: true
+      }).then(() => doc);
+      res.render('index.handlebars')
+    })
+
   },
 }

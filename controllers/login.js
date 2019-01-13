@@ -4,8 +4,6 @@ module.exports = {
 
   index(req, res) {
     const myUserEntity = GoogleUserInfo.userInfo(req);
-    console.log('inside Account index')
-    console.log(myUserEntity)
     var email = myUserEntity.email;
     AccountModel.find({
       email: email
@@ -50,8 +48,8 @@ module.exports = {
         sort: {
           timestamp: -1
         }
-      }, (err, posts) => {
-        res.send(posts);
+      }, (err, accounts) => {
+        res.send(accounts);
       })
     } else {
       res.render('notfound')

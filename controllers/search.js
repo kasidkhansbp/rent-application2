@@ -4,7 +4,6 @@ module.exports = {
 		//TODO-put in search criteria
 		console.log('inside search index')
 			PostModel.find({},{},{sort:{timestamp:-1}},(err,posts)=> {
-				console.log(posts)
 				res.render('postlist.handlebars',posts);
 			})
 		}

@@ -33,7 +33,7 @@ $(document).ready(function() {
         console.log(err)
       }
     })
-  })
+  });
   $(".reply-button").click(function(e) {
     // make corresponding reply-block visible
     $(this).closest(".container").find(".reply-block").show();
@@ -47,13 +47,30 @@ $(document).ready(function() {
 
   $("#post-form").submit(function() {
     if (localStorage.getItem('myUserEntity') == null) {
-      console.log('local storage' + localStorage.getItem('myUserEntity'));
       alert("login to post an Ad");
       return false;
     } else {
-      console.log('local storage' + localStorage.getItem('myUserEntity'));
       // else part should happen while login and post
       return true;
     }
   });
+	// Ajax call when user clicks on send
+	// it need the message and id to be passed
+	$('.reply-submit').on('click', function(e) {
+    $target = $(this).closest(".target");
+    const id = $target.attr('data-id');
+		const msg = $(this).closest(".target").find(".reply-msg").val();)
+		var replyData = {}
+		replyData.id=id;
+		replyData.msg=msg;
+		replyData=JSON.stringify(replyData);
+		// How to get the message from text area and send to server through ajax
+		var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'http://localhost:3000/post/reply', true);
+	  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	  xhr.onload = function() {
+	    console.log('Signed in as: ' + xhr.responseText);
+	  };
+	  xhr.send('replyData='+replyData);
+  })
 });
