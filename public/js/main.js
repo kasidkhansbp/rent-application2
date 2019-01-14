@@ -34,12 +34,12 @@ $(document).ready(function() {
       }
     })
   });
-  $(".reply-button").click(function(e) {
+  $(".reply-button").click(function() {
     // make corresponding reply-block visible
     $(this).closest(".container").find(".reply-block").show();
     // other code here to act on the click
   });
-  $(".reply-cancel").click(function(e) {
+  $(".reply-cancel").click(function() {
     // make corresponding reply-block visible
     $(this).closest(".container").find(".reply-block").hide();
     // other code here to act on the click
@@ -56,7 +56,7 @@ $(document).ready(function() {
   });
 	// Ajax call when user clicks on send
 	// it need the message and id to be passed
-	$('.reply-submit').on('click', function(e) {
+	$('.reply-submit').on('click', function() {
     $target = $(this).closest(".target");
     const id = $target.attr('data-id');
 		const msg = $(this).closest(".target").find(".reply-msg").val();
@@ -73,7 +73,7 @@ $(document).ready(function() {
 	  };
 	  xhr.send('replyData='+replyData);
   });
-  $('#mypost').on('click',function(e){
+  $('#mypost').on('click',function(){
     $.ajax({
       type: 'GET',
       url: '/post/mypost/',
