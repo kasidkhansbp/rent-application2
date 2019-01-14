@@ -13,6 +13,7 @@ module.exports = (app)=> {
 	router.get('/post/edit/:id',post.edit);
 	router.get('/post/delete/:id',post.delete);
 	router.post('/post/reply/',post.reply);
+	router.get('/post/mypost',post.userpost)
 	//Test purpose
 	router.get('/accounts',login.getAccount);
 	app.use(router);

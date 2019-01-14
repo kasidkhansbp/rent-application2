@@ -7,11 +7,11 @@ $(document).ready(function() {
     var remove = confirm('Are you sure you want to delete the post');
     if (remove) {
       $.ajax({
-        type: 'DELETE',
-        url: '/post/' + id,
+        type: 'GET',
+        url: '/post/delete/' + id,
         success: function(response) {
           alert('post deleted');
-          window.location.href = '/';
+          window.location.href = '/post/mypost';
         },
         error: function(err) {
           console.log(err);
@@ -59,7 +59,7 @@ $(document).ready(function() {
 	$('.reply-submit').on('click', function(e) {
     $target = $(this).closest(".target");
     const id = $target.attr('data-id');
-		const msg = $(this).closest(".target").find(".reply-msg").val();)
+		const msg = $(this).closest(".target").find(".reply-msg").val();
 		var replyData = {}
 		replyData.id=id;
 		replyData.msg=msg;
@@ -72,5 +72,18 @@ $(document).ready(function() {
 	    console.log('Signed in as: ' + xhr.responseText);
 	  };
 	  xhr.send('replyData='+replyData);
+  });
+  $('#mypost').on('click',function(e){
+    $.ajax({
+      type: 'GET',
+      url: '/post/mypost/',
+      success: function(response) {
+        console.log('success')
+        window.location.href = '/post/mypost/';
+      },
+      error: function(err) {
+        console.log(err)
+      }
+    })
   })
 });

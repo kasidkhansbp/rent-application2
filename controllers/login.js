@@ -12,9 +12,7 @@ module.exports = {
         console.log('error: ' + error)
         process.exit(1)
       }
-      console.log(account);
       if (!account.length) {
-        console.log('entered account creation')
         account = new AccountModel({
           email: myUserEntity.email,
           name: myUserEntity.name,
@@ -34,7 +32,6 @@ module.exports = {
         })
       } else {
         //set session with name and email
-        console.log('existing account session setter')
         req.session.email = myUserEntity.email;
         req.session.name = myUserEntity.name;
         res.render('index.handlebars')

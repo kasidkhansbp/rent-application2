@@ -3,11 +3,8 @@ AccountModel = require('../models').Account;
 ReplyModel = require('../models').Reply;
 module.exports = {
   create(req, res) {
-    console.log('Entered post create')
     //res.send('The post: create controller');
-    console.log('req session' + req.session.email)
     if (!req.session.email) {
-      console.log('inside req session validation')
       res.redirect('/');
     }
     let post = new PostModel({
@@ -21,8 +18,6 @@ module.exports = {
     })
     //saves the post
     post.save().then(function(doc) {
-      console.log('inside post save' + doc._id)
-      console.log('email' + req.session.email)
       // IS there a better way write this query to catch error
       AccountModel.findOneAndUpdate({
         email: req.session.email
@@ -72,6 +67,7 @@ module.exports = {
         process.exit(1)
       }
       // check if the post exist.
+      console.log('post for deletion'+post)
       if (post == null) return res.status(404).send("post not found")
       // Delete the post
       post.remove((error) => {
@@ -79,21 +75,15 @@ module.exports = {
           console.log('error: ' + error)
           process.exit(1)
         }
-        res.status(204).send()
+        res.redirect('/post/mypost');
       })
     })
   },
   reply(req, res) {
     //res.send('The post: reply controller');
-    // I need post id
-    console.log('Entered reply create')
-    //res.send('The post: create controller');
-    console.log('req session email ' + req.session.email)
-    console.log('req session name' + req.session.name)
-    console.log('post id'+req.body.replyData)
+    //res.send('The post: create controller')
     const replyData = JSON.parse(req.body.replyData);
     if (!req.session.email) {
-      console.log('inside req session validation')
       res.redirect('/');
     }
     // Create a Reply
@@ -106,8 +96,6 @@ module.exports = {
     })
     // save the Reply
     reply.save().then(function(doc) {
-      console.log('inside post save' + doc._id)
-      console.log('email' + req.session.email)
       // IS there a better way write this query to catch error
       // update account
       AccountModel.findOneAndUpdate({
@@ -131,6 +119,17 @@ module.exports = {
       }).then(() => doc);
       res.render('index.handlebars')
     })
-
+  },
+  userpost(req, res) {
+    console.log('user post controller')
+    PostModel.find({
+      email: req.session.email
+    }, {}, {
+      sort: {
+        timestamp: -1
+      }
+    }, (err, posts) => {
+      res.render('postlist.handlebars', posts);
+    })
   },
 }
