@@ -10,7 +10,7 @@ module.exports = (app)=> {
 	router.get('/search',search.index);
 	router.post('/login',login.index);
 	router.post('/post',post.create);
-	router.get('/post/edit/:id',post.edit);
+	router.post('/post/edit/',post.edit);
 	router.get('/post/delete/:id',post.delete);
 	router.post('/post/reply/',post.reply);
 	router.get('/post/mypost',post.userpost)

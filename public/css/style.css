@@ -75,13 +75,14 @@ fieldset {
 }
 p {
   color: #E64A19;
+  border-style: solid;
 }
 
 h1 span {
    color: #E64A19;
 }
 
-.title,
+.logo,
 .g-signin2 {
   display:inline-block;
 }
@@ -156,10 +157,9 @@ form input[type="submit"] {
 
 }
 
-.container h1 {
-    display:inline-block;
+.title,.description,.pincode,.address {
+    border-bottom:0px solid black;
 }
-
 .container a {
   float:right;
   padding: 25px;
@@ -171,7 +171,7 @@ form input[type="submit"] {
 }
 
 .g-loginData,
-.reply-button {
+.reply-button,.edit-save,.edit-cancel {
   display:none;
 }
 

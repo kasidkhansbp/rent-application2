@@ -4,10 +4,12 @@
       <div class="container">
         <a href="" data-id={{_id}} class="delete">delete</a>
         <a href="" data-id={{_id}} class="edit">edit</a> </br>
-        <h1>{{title}}</h1>
-        <p>{{description}}</p>
-        <h4>{{pincode}}</h4>
-        <h4>{{address}}</h4>
+        <h1 class="title" contenteditable="false">{{title}}</h1>
+        <p class="description" contenteditable="false">{{description}}</p>
+        <h4 class="pincode" contenteditable="false">{{pincode}}</h4>
+        <h4 class="address" contenteditable="false">{{address}}</h4><br>
+        <button class="edit-cancel">cancel</button>
+        <button class="edit-save">save</button>
         <!--reply-button is hidden by default till user login-->
         <button class="reply-button">Reply</button>
         <!--reply class is hidden by default-->

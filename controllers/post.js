@@ -32,32 +32,26 @@ module.exports = {
     })
   },
   edit(req, res) {
-    //find the post by ID
-    PostModel.findById(req.params.id, (error, post) => {
-      if (error) {
-        console.log('error: ' + error)
-        process.exit(1)
+    const updatePost = JSON.parse(req.body.updatePost);
+
+    console.log('inside post edit')
+    PostModel.findOneAndUpdate({
+      _id: updatePost.id
+    }, {
+      "$set": {
+        "title": updatePost.title,
+        "description": updatePost.description,
+        "pincode": updatePost.pincode,
+        "address": updatePost.address
       }
-      // check if the post exist.
-      if (post == null) return res.status(404).send("post not found")
-      // update the change
-      post.title = req.body.title,
-        post.description = req.body.description,
-        post.address = req.body.address,
-        post.pincode = req.body.pincode,
-        post.timestamp = Date.now(),
-        post.email = req.session.email
-
-      //save the function
-      post.save((error) => {
-        if (error) {
-          console.log('error: ' + error)
-          process.exit(1)
-        }
-        res.status(200).send('Updated successfully')
-      })
-    })
-
+    }).exec(function(err, post) {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(post);
+      }
+    });
   },
   delete(req, res) {
     //find the post by ID
@@ -67,7 +61,7 @@ module.exports = {
         process.exit(1)
       }
       // check if the post exist.
-      console.log('post for deletion'+post)
+      console.log('post for deletion' + post)
       if (post == null) return res.status(404).send("post not found")
       // Delete the post
       post.remove((error) => {
