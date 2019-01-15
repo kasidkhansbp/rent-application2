@@ -10,8 +10,8 @@ $(document).ready(function() {
         type: 'GET',
         url: '/post/delete/' + id,
         success: function(response) {
+          $target.parent().remove();
           alert('post deleted');
-          window.location.href = '/post/mypost';
         },
         error: function(err) {
           console.log(err);
