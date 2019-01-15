@@ -78,6 +78,8 @@ $(document).ready(function() {
       url: '/post/mypost/',
       success: function(response) {
         console.log('success')
+        $(this).closest(".container").find(".reply-block").hide();
+        alert("email send successfully");
         window.location.href = '/post/mypost/';
       },
       error: function(err) {
@@ -99,6 +101,7 @@ $(document).ready(function() {
     $(this).closest(".container").find(".address").css("border-bottom", "0px solid black");
   });
   $(".edit-save").click(function(e) {
+    e.preventDefault();
     $target = $(e.target);
     //const id = $target.attr('data-id');
     const id = $(this).closest(".target").attr('data-id');
