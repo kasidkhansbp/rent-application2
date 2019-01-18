@@ -75,8 +75,6 @@ module.exports = {
     })
   },
   reply(req, res) {
-    //res.send('The post: reply controller');
-    //res.send('The post: create controller')
     const replyData = JSON.parse(req.body.replyData);
     if (!req.session.email) {
       res.redirect('/');
@@ -113,8 +111,8 @@ module.exports = {
         new: true
       }).then(() => doc);
       emailservice.sendemail(replyData);
-      console.log('after email service')
-      res.render('index.handlebars')
+      console.log('after email service');
+      res.render('index.handlebars');
     })
   },
   userpost(req, res) {

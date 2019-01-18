@@ -13,13 +13,13 @@ body {
 }
 fieldset {
   display: block;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-before: 0em;
-  -webkit-padding-start: 0em;
-  -webkit-padding-end: 0em;
-  -webkit-padding-after: 0em;
-  border: 0px;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  -webkit-padding-after: 0;
+  border: 0;
   border-image-source: initial;
   border-image-slice: initial;
   border-image-width: initial;
@@ -33,7 +33,7 @@ fieldset {
   font-weight:300;
   width: 100%;
   font-size: 25px;
-  border:0px;
+  border:0;
   outline: none;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -43,7 +43,7 @@ fieldset {
   background: #fff;
   font-family: Open Sans,Verdana;
   padding: 10px 15px;
-  margin: 30px 0px;
+  margin: 30px 0;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -ms-transition: all 0.1s ease-in-out;
@@ -97,7 +97,7 @@ h1 span {
   font-weight:100;
   width: 50%;
   font-size: 25px;
-  border:0px;
+  border:0;
   outline: none;
   width: 50%;
   -webkit-box-sizing: border-box;
@@ -107,7 +107,7 @@ h1 span {
   background: #fff;
   font-family: Open Sans,Verdana;
   padding: 10px 10px;
-  margin: 10px 0px;
+  margin: 10px 0;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -ms-transition: all 0.1s ease-in-out;
@@ -158,7 +158,7 @@ form input[type="submit"] {
 }
 
 .title,.description,.pincode,.address {
-    border-bottom:0px solid black;
+    border-bottom:0 solid black;
 }
 .container a {
   float:right;

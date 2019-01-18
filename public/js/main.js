@@ -78,8 +78,6 @@ $(document).ready(function() {
       url: '/post/mypost/',
       success: function(response) {
         console.log('success')
-        $(this).closest(".container").find(".reply-block").hide();
-        alert("email send successfully");
         window.location.href = '/post/mypost/';
       },
       error: function(err) {
