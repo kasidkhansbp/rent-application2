@@ -1,6 +1,4 @@
-const mongoose = require('mongoose'),
-      schema = mongoose.Schema,
-      path = require('path');
+const mongoose = require('mongoose');
 
 // declare a Schema
 var Schema = mongoose.Schema
