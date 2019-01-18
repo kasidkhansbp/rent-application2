@@ -19,8 +19,7 @@ function onSignIn(googleUser) {
     console.log('Signed in as: ' + xhr.responseText);
   };
   xhr.send('myUserEntity=' + localStorage.getItem('myUserEntity'));
-
-};
+}
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
@@ -29,4 +28,4 @@ function signOut() {
     location.reload();
   });
   alert("google logout done.");
-};
+}
