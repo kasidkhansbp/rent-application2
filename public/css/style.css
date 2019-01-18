@@ -15,9 +15,13 @@ fieldset {
   display: block;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
+  -moz-margin-start: 0;
+  -moz-margin-end: 0;
   -webkit-padding-before: 0;
   -webkit-padding-start: 0;
   -webkit-padding-end: 0;
+  -moz-padding-start: 0;
+  -moz-padding-end: 0;
   -webkit-padding-after: 0;
   border: 0;
   border-image-source: initial;
@@ -91,7 +95,7 @@ h1 span {
   display:inline-block;
 }
 
-.post-ghost-input, p:focus {
+.post-ghost-input, p {
   display: block;
   font-weight:100;
   width: 50%;
