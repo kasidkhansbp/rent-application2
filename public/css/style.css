@@ -28,14 +28,13 @@ fieldset {
   min-width: -webkit-min-content;
   padding: 30px;
 }
-.ghost-input, p {
+.ghost-input, p:focus {
   display: block;
   font-weight:300;
   width: 100%;
   font-size: 25px;
   border:0;
   outline: none;
-  width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -99,7 +98,6 @@ h1 span {
   font-size: 25px;
   border:0;
   outline: none;
-  width: 50%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
