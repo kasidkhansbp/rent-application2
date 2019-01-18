@@ -91,7 +91,7 @@ h1 span {
   display:inline-block;
 }
 
-.post-ghost-input, p {
+.post-ghost-input, p:focus {
   display: block;
   font-weight:100;
   width: 50%;
