@@ -7,7 +7,8 @@ bodyParser = require('body-parser'),
   cookieParser = require('cookie-parser'),
   morgan = require('morgan'),
   methodOverride = require('method-override'),
-  errorHandler = require('errorhandler');
+  errorHandler = require('errorhandler'),
+  nodemailer = require('nodemailer');
 const {
   OAuth2Client
 } = require('google-auth-library');

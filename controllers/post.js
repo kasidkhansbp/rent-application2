@@ -1,6 +1,7 @@
 PostModel = require('../models').Post;
 AccountModel = require('../models').Account;
 ReplyModel = require('../models').Reply;
+var emailservice = require('../helpers/emailservice');
 module.exports = {
   create(req, res) {
     //res.send('The post: create controller');
@@ -103,7 +104,7 @@ module.exports = {
       }).then(() => doc);
       // update post
       PostModel.findOneAndUpdate({
-        _id: req.body.replyData.id
+        _id: replyData.id
       }, {
         $push: {
           replies: doc._id
@@ -111,6 +112,8 @@ module.exports = {
       }, {
         new: true
       }).then(() => doc);
+      emailservice.sendemail(replyData);
+      console.log('after email service')
       res.render('index.handlebars')
     })
   },

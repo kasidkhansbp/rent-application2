@@ -19,6 +19,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.4.2",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.9"
+    "nodemailer": "^5.1.1",
+    "nodemon": "^1.18.9",
+    "sendgrid": "^5.2.3"
   }
 }
