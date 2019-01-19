@@ -59,6 +59,9 @@ $(document).ready(function() {
     $target = $(this).closest(".target");
     const id = $target.attr('data-id');
     const msg = $(this).closest(".target").find(".reply-msg").val();
+    // reset the textarea and hide the reply block
+    $(this).closest(".target").find(".reply-msg").val(' ');
+    $(this).closest(".target").find(".reply-block").hide();
     var replyData = {}
     replyData.id = id;
     replyData.msg = msg;
@@ -68,6 +71,7 @@ $(document).ready(function() {
     xhr.open('POST', 'http://localhost:3000/post/reply', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
+      alert('email send successfully');
       console.log('Signed in as: ' + xhr.responseText);
     };
     xhr.send('replyData=' + replyData);

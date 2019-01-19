@@ -124,7 +124,7 @@ module.exports = {
         timestamp: -1
       }
     }, (err, posts) => {
-      res.render('postlist.handlebars', posts);
+      res.render('mypost.handlebars', posts);
     })
   },
 }

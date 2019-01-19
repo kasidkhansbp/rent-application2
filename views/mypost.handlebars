@@ -2,20 +2,14 @@
   {{#each .}}
     <section class="target" data-id={{_id}}>
       <div class="container">
+        <a href="" data-id={{_id}} class="delete">delete</a>
+        <a href="" data-id={{_id}} class="edit">edit</a> </br>
         <h1 class="title" contenteditable="false">{{title}}</h1>
         <p class="description" contenteditable="false">{{description}}</p>
         <h4 class="pincode" contenteditable="false">{{pincode}}</h4>
         <h4 class="address" contenteditable="false">{{address}}</h4><br>
         <button class="edit-cancel">cancel</button>
         <button class="edit-save">save</button>
-        <!--reply-button is hidden by default till user login-->
-        <button class="reply-button">Reply</button>
-        <!--reply class is hidden by default-->
-        <div class="reply-block">
-          <textarea class="reply-msg" rows="4" cols="50"></textarea><br>
-          <button class="reply-submit">send</button>
-          <button class="reply-cancel">cancel</button>
-        </div>
       </div>
     </section>
   {{/each}}
