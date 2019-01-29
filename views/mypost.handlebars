@@ -1,5 +1,6 @@
 <article>
   {{#each .}}
+  {{#if _id}}
     <section class="target" data-id={{_id}}>
       <div class="container">
         <a href="" data-id={{_id}} class="delete">delete</a>
@@ -8,9 +9,10 @@
         <p class="description" contenteditable="false">{{description}}</p>
         <h4 class="pincode" contenteditable="false">{{pincode}}</h4>
         <h4 class="address" contenteditable="false">{{address}}</h4><br>
-        <button class="edit-cancel">cancel</button>
+        <button class="edit-cancel" onclick="location.href='http://localhost:3000/post/mypost';">cancel</button>
         <button class="edit-save">save</button>
       </div>
     </section>
+    {{/if}}
   {{/each}}
 </article>

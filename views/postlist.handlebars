@@ -1,5 +1,6 @@
 <article>
   {{#each .}}
+  {{#if _id}}
     <section class="target" data-id={{_id}}>
       <div class="container">
         <h1 class="title" contenteditable="false">{{title}}</h1>
@@ -18,5 +19,6 @@
         </div>
       </div>
     </section>
+    {{/if}}
   {{/each}}
 </article>
