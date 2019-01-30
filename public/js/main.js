@@ -21,6 +21,7 @@ $(document).ready(function() {
   });
   $('.edit').on('click', function(e) {
     e.preventDefault();
+    $(this).closest(".container").find(".post-details").toggle();
     $(this).closest(".container").find(".title").attr("contenteditable", "true");
     $(this).closest(".container").find(".description").attr("contenteditable", "true");
     $(this).closest(".container").find(".pincode").attr("contenteditable", "true");
