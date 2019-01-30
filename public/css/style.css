@@ -3,7 +3,7 @@
 */
 
 body {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
 }
@@ -88,6 +88,8 @@ h1 span {
 .logo,
 .g-signin2 {
   display:inline-block;
+  margin-right: 200px;
+  margin-left: 200px;
 }
 
 .sub-title {
@@ -124,7 +126,7 @@ h1 span {
   background-color: #42d12e;
   border:2px;
   padding:10px 30px;
-  width: 50%;
+  width: 20%;
   min-width: 150px;
   opacity:0.90;
   border-radius: 12px;
@@ -145,10 +147,11 @@ form input[type="submit"] {
   background-color: #E64A19;
   border:1px;
   padding:3px 3px;
-  width: 11%;
+  width: 6%;
   min-width: 10px;
   opacity:0.90;
   border-radius: 10px;
+  margin-left:30px
 
 }
 
@@ -175,6 +178,7 @@ form input[type="submit"] {
 .g-loginData,
 .reply-button,.edit-save,.edit-cancel {
   display:none;
+  float:right;
 }
 
 .reply-block {
@@ -195,4 +199,49 @@ form input[type="submit"] {
   background: #f4f4f4;
   margin:20%;
   width: 60%;
+}
+
+#g-loginPic {
+  display: inline-block;
+  width:30px;
+  height:30px;
+}
+
+.g-loginData {
+  margin-top:20px;
+  margin-bottom: 20px;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+#mypost {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.header {
+  height: 80px;
+  background: #F0F0F0;
+  position: fixed;
+  top:0;
+  width:100%
+}
+
+.main {
+  margin-top:100px;
+}
+
+.target {
+  padding:25px;
+}
+
+.button {
+    border-radius: 2px;
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px;
+}
+
+.edit-save,.edit-cancel {
+  margin-left:5px;
 }
