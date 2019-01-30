@@ -245,3 +245,11 @@ form input[type="submit"] {
 .edit-save,.edit-cancel {
   margin-left:5px;
 }
+
+.post-details {
+  display:none;
+}
+
+.title:hover {
+  text-decoration: underline;
+}

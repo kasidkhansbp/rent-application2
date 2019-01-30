@@ -145,4 +145,9 @@ $(document).ready(function() {
       }
     })
   });
+  $(".title").click(function() {
+    // make corresponding reply-block visible
+    $(this).closest(".container").find(".post-details").toggle();
+    // other code here to act on the click
+  });
 });
