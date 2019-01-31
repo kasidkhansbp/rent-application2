@@ -257,3 +257,8 @@ form input[type="submit"] {
 .logo,.g-loginData a {
   color:white;
 }
+
+#home-search {
+  margin-top: 200px;
+  text-align: center;
+}

@@ -147,8 +147,16 @@ $(document).ready(function() {
     })
   });
   $(".title").click(function() {
-    // make corresponding reply-block visible
+    // Post details appears on click of title
     $(this).closest(".container").find(".post-details").toggle();
-    // other code here to act on the click
+  });
+  $("#toggle").click(function() {
+    var offset = $(this).offset();
+    offset.left -= 20;
+    offset.top -= 20;
+    $('html, body').animate({
+    scrollTop: offset.top,
+    scrollLeft: offset.left
+});
   });
 });
