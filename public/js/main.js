@@ -120,12 +120,14 @@ $(document).ready(function() {
     updatePost.pincode = pincode;
     updatePost.address = address;
     updatePost = JSON.stringify(updatePost);
-    console.log('updated post'+updatePost)
+    console.log('updated post' + updatePost)
     $.ajax({
       type: 'POST',
       url: '/post/edit/',
       dataType: 'json',
-      data:{updatePost},
+      data: {
+        updatePost
+      },
       success: function(response) {
         console.log('success')
         window.location.href = '/post/mypost/';
@@ -155,8 +157,8 @@ $(document).ready(function() {
     offset.left -= 20;
     offset.top -= 20;
     $('html, body').animate({
-    scrollTop: offset.top,
-    scrollLeft: offset.left
-});
+      scrollTop: offset.top,
+      scrollLeft: offset.left
+    });
   });
 });
