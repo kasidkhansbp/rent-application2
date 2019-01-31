@@ -221,7 +221,7 @@ form input[type="submit"] {
 
 .header {
   height: 70px;
-  background: #F0F0F0;
+  background: #24292e;
   position: fixed;
   top:0;
   width:100%
@@ -252,4 +252,8 @@ form input[type="submit"] {
 
 .title:hover {
   text-decoration: underline;
+}
+
+.logo,.g-loginData a {
+  color:white;
 }
