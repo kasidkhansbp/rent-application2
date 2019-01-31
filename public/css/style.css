@@ -220,7 +220,7 @@ form input[type="submit"] {
 }
 
 .header {
-  height: 80px;
+  height: 70px;
   background: #F0F0F0;
   position: fixed;
   top:0;
@@ -237,7 +237,7 @@ form input[type="submit"] {
 
 .button {
     border-radius: 2px;
-    background-color: #4CAF50;
+    background-color: #42d12e;
     border: none;
     padding: 10px;
 }
