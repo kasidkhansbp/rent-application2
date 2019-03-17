@@ -1,3 +1,5 @@
 #Ignore node modules folder
-node_modules/
+./backend/node_modules/
+./webapp/node_modules/
 sendgrid.env
+node_modules

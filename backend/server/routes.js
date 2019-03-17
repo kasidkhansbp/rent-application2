@@ -16,5 +16,5 @@ module.exports = (app)=> {
 	router.get('/post/mypost/',post.userpost)
 	//Test purpose
 	router.get('/accounts',login.getAccount);
-	app.use(router);
+	app.use('/api', router);
 };

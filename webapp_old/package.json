@@ -1,0 +1,41 @@
+{
+  "name": "rent-application-webapp",
+  "version": "1.0.0",
+  "description": "this contains the views and ui components",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@personal/rent-application2.git"
+  },
+  "keywords": [
+    "react",
+    "webapp"
+  ],
+  "author": "soumya",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "^2.1.8",
+    "typescript": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.0",
+    "@types/node": "^10.12.24",
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "eslint": "5.12.0",
+    "eslint-plugin-react": "^7.12.4",
+    "tslint-eslint-rules": "^5.4.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

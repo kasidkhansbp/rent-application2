@@ -1,26 +1,20 @@
 {
   "name": "rent-application2",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an application build on HTML/CSS+Node+Express+Mongodb. It is an application to post ads on website which will be publicly available for others. And other Logged in users can reply to the ads. An email is send to the post owner for every response they receive on their post.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd backend && node server.js\" \"cd webapp && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "personal:kasidkhansbp/rent-application2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cookie-parser": "^1.4.3",
-    "errorhandler": "^1.5.0",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "express-handler": "^0.2.0",
-    "express-session": "^1.15.6",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.4.2",
-    "morgan": "^1.9.1",
-    "nodemailer": "^5.1.1",
-    "nodemon": "^1.18.10",
-    "sendgrid": "^5.2.3"
+    "concurrently": "^4.1.0"
   }
 }

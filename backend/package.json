@@ -1,0 +1,29 @@
+{
+  "name": "rent-application-backend",
+  "version": "1.0.0",
+  "description": "this configures the backend of the application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-handler": "^0.2.0",
+    "express-session": "^1.15.6",
+    "google-auth-library": "^3.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.2",
+    "morgan": "^1.9.1",
+    "nodemailer": "^5.1.1",
+    "nodemon": "^1.18.9",
+    "sendgrid": "^5.2.3"
+  }
+}
