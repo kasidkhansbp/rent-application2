@@ -15,6 +15,6 @@ mongoose.connect('mongodb://localhost/rent-application2');
 mongoose.connection.on('open',()=>{
 	console.log('mongoose connected.')
 });
-const server = app.listen(app.get('port'),()=>{
+const server = app.listen(app.get('port'), () => {
 	console.log(`server up: http://localhost:${app.get('port')}`);
 });
