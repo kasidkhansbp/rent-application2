@@ -1,18 +1,26 @@
 import React from 'react';
-import "../../../App.css";
-import api from '../remote/api';
+import "../../../../App.css";
+import api from '../../remote/api';
+import { addSearchResult } from '../../redux/redux-actions/action';
+import { connect } from 'react-redux';
 
 interface Props {
-
+    addSearchResult: (searchResult: Array<any>) => void
 }
 
 interface State {
     searchText: string
 }
 
-export default class SearchBar extends React.PureComponent<Props> {
+const mapDispatchToProps = (dispatch: any) => (
+    {
+        addSearchResult: (searchResult: Array<any>) => dispatch(addSearchResult(searchResult))
+    }
+);
 
-    state = {
+class SearchBar extends React.PureComponent<Props, State> {
+
+    state: State = {
         searchText: ''
     };
 
@@ -24,7 +32,8 @@ export default class SearchBar extends React.PureComponent<Props> {
         if(evt.key === 'Enter') {
             let {searchText} = this.state;
             let result = await api.getSearchResult(searchText);
-            console.log(result);
+            this.props.addSearchResult(result.data);
+            console.log('result', result);
         }
         
     }
@@ -43,3 +52,5 @@ export default class SearchBar extends React.PureComponent<Props> {
         );
     }
 }
+
+export default connect(null, mapDispatchToProps)(SearchBar);
