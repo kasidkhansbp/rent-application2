@@ -1,0 +1,33 @@
+.Searchbar-Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Search-container {
+    background-color: white;
+    width: 48%;
+    overflow: auto;
+    align-self: center;
+    padding: 1px;
+    margin-top: 50px;
+}
+
+.Search-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    overflow: auto;
+    height: 500px;
+    background-color: rgb(251, 253, 255)
+}
+
+.Search-result-container::-webkit-scrollbar {
+    display: none
+}
+
+.Search-result-card {
+    width: 70%;
+    margin: 5px;
+}

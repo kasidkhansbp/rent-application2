@@ -5,7 +5,8 @@ var emailservice = require('../helpers/emailservice');
 module.exports = {
   create(req, res) {
     //res.send('The post: create controller');
-    if (!req.session.email) {
+    console.log('create ad', req);
+    if (!req.body.email) {
       res.redirect('/');
     }
     let post = new PostModel({
@@ -14,14 +15,14 @@ module.exports = {
       address: req.body.address,
       pincode: req.body.pincode,
       timestamp: Date.now(),
-      email: req.session.email,
+      email: req.body.email,
       replies: []
-    })
+    });
     //saves the post
     post.save().then(function(doc) {
       // IS there a better way write this query to catch error
       AccountModel.findOneAndUpdate({
-        email: req.session.email
+        email: req.body.email
       }, {
         $push: {
           posts: doc._id
@@ -29,9 +30,10 @@ module.exports = {
       }, {
         new: true
       }).then(() => doc);
-      res.render('index.handlebars')
+      // res.render('index.handlebars')
     })
   },
+
   edit(req, res) {
     const updatePost = JSON.parse(req.body.updatePost);
 
@@ -54,6 +56,7 @@ module.exports = {
       }
     });
   },
+
   delete(req, res) {
     //find the post by ID
     PostModel.findById(req.params.id, (error, post) => {
@@ -74,6 +77,7 @@ module.exports = {
       })
     })
   },
+
   reply(req, res) {
     const replyData = JSON.parse(req.body.replyData);
     if (!req.session.email) {
@@ -115,6 +119,7 @@ module.exports = {
       res.render('index.handlebars');
     })
   },
+
   userpost(req, res) {
     console.log('user post controller')
     PostModel.find({

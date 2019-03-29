@@ -1,8 +1,29 @@
 import React from 'react';
-import "../../../../App.css";
+import "../../../css/Search.css";
+import {
+    FormControl
+} from 'react-bootstrap';
+
 import api from '../../remote/api';
 import { addSearchResult } from '../../redux/redux-actions/action';
 import { connect } from 'react-redux';
+import SearchResultComponent from './SearchResultComponent';
+
+export default class SearchBarComponent extends React.PureComponent<any> {
+
+    static navigationOptions = {
+        title: 'SearchBar'
+    }
+    
+    render() {
+        return (
+            <div className = 'Searchbar-Container'>
+                <SearchBarContainer />
+                <SearchResultComponent />
+            </div>
+        );
+    }
+}
 
 interface Props {
     addSearchResult: (searchResult: Array<any>) => void
@@ -19,7 +40,7 @@ const mapDispatchToProps = (dispatch: any) => (
 );
 
 class SearchBar extends React.PureComponent<Props, State> {
-
+    
     state: State = {
         searchText: ''
     };
@@ -34,23 +55,27 @@ class SearchBar extends React.PureComponent<Props, State> {
             let result = await api.getSearchResult(searchText);
             this.props.addSearchResult(result.data);
             console.log('result', result);
-        }
-        
+        }        
     }
-
+    
     render() {
         return (
-            <div className = "Search-bar-container">
-                <input className = "form-control" 
+            <div className = "Search-container">
+                <FormControl placeholder = "Search your heart out"
+                autoFocus
+                value = {this.state.searchText}
+                onChange = {this.updateSearchText}
+                onKeyUp = {this.onEnter}/>
+                {/* <input className = "form-control" 
                 placeholder = "Search your heart out" 
                 autoFocus 
                 value = {this.state.searchText}
                 onChange = {this.updateSearchText}
                 onKeyUp = {this.onEnter}
-                ></input>
+                ></input> */}
             </div>
-        );
+        )
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+const SearchBarContainer = connect(null, mapDispatchToProps)(SearchBar);
